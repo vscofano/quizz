@@ -1,0 +1,123 @@
+body{
+    color: gray;
+}
+:root {
+    /* Definindo a paleta de cores */
+    --cor-primaria: #7e22cf; /* roxo */
+    --cor-secundaria: #000000; /* preto */
+    --cor-terciaria: #ffffff; /* branco */
+}
+
+span{
+    color: var(--cor-primaria);
+}
+
+#logo{
+    width: 200px;
+}
+
+.vertical-divider {
+    border-right: 1px solid var(--cor-primaria); /* Estilo da linha vertical */
+
+}
+#principal{
+    margin-top: 150px;
+}
+#form-container{
+    
+    
+}
+#form-label{
+    font-size: 35px;
+    color: gray;
+}
+#user-input{
+    border-radius: 50px;
+    border-color: var(--cor-primaria);
+    box-shadow: 1px 1px 2px var(--cor-primaria);
+    border-width: 1px;
+    width: 100%;
+    margin: 5px;
+    padding: 12px;
+}
+#continuar{
+    border-radius: 25px;
+    padding: 5px 5px;
+    width: 30%;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: var(--cor-terciaria);
+    float: right;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 2px gray;
+}
+#continuar:hover{
+    background-color: green;
+}
+
+#multiple-choice-container{
+  
+}
+#mcq-label{
+    font-size: 35px;
+}
+#mcq-options{
+  
+
+}
+/* Estilos para os botões de opção */
+.opcao-btn {
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Alterar o tamanho dos botões de opção */
+.opcao-btn:hover {
+    background-color: var(--cor-primaria);
+    border-color: #aaa;
+}
+
+/* Estilos para os ícones */
+.icon {
+    font-size: 24px; /* Alterar o tamanho do ícone */
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Alterar a cor dos ícones */
+.icon.fa-frown {
+    color: red;
+}
+.icon.fa-meh {
+    color: orange;
+}
+.icon.fa-smile {
+    color: yellow;
+}
+.icon.fa-grin {
+    color: green;
+}
+
+/* Estilo para o botão selecionado */
+.opcao-btn-selecionado {
+    background-color: #d0d0d0;
+    border-color: #888;
+}
+
+
+
+
+/*Responsivo Mobile*/
+@media only screen and (max-width: 500px) {
+   
+}
+
+
+/*Responsivo tablet*/
