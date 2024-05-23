@@ -23,10 +23,7 @@ span{
 #principal{
     margin-top: 150px;
 }
-#form-container{
-    
-    
-}
+
 #form-label{
     font-size: 35px;
     color: gray;
@@ -55,16 +52,10 @@ span{
     background-color: green;
 }
 
-#multiple-choice-container{
-  
-}
 #mcq-label{
     font-size: 35px;
 }
-#mcq-options{
-  
 
-}
 /* Estilos para os botões de opção */
 .opcao-btn {
     align-items: center;
@@ -112,12 +103,38 @@ span{
 }
 
 
+/*Página de Resultados*/
+.progress-bar {
+    transition: width 2.5s ease; /* Transição suave da largura da barra de progresso em 1 segundo */
+  }
+
+
+.img-tema {
+    width: 70%; /* Defina o tamanho desejado para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.product{
+    text-align: center;
+}
+
+.tema {
+    font-size: 25px; /* Defina o tamanho desejado para a fonte */
+}
 
 
 /*Responsivo Mobile*/
 @media only screen and (max-width: 500px) {
-   
+   #roleta{
+    width: 300px;
+   }
+   #caixa_roleta{
+   text-align: center;
+   }
 }
+
 
 
 /*Responsivo tablet*/

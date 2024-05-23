@@ -1,4 +1,3 @@
-
 //formulario 1
 document.addEventListener('DOMContentLoaded', (event) => {
     const formContainer = document.getElementById('form-container');
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const mcqOptions = document.getElementById('mcq-options');
     const mcqContinuarBtn = document.getElementById('mcq-continuar');
     const resultadoDiv = document.getElementById('resultado');
-
+    
     const perguntas = [
         'Qual é o seu nome?',
         'Qual é a sua idade?',
@@ -188,7 +187,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             ]
         },
         {
-            nome: 'Tireoide',
+            nome: 'Avaliacão Tireoide',
             perguntas: [
                 {
                     texto: 'Selecione todos os sintomas e sinais que você possui:',
@@ -235,12 +234,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     texto: 'Selecione a(s) patologia(s) que você possui além da fibromialgia:',
                     opcoes: ['Tendinite', 'Hernia de Disco', 'Artrite/Artrose', 'Epicondilite', 'Fascite', 'Dor na coluna','Lupus','Artrite Reumatoide','Sacroileite','Bursite','Nem uma das opções'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile'],
-                    pontuacao: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
+                    pontuacao: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
                 }
             ]
         },
         {
-            nome: ' Avaliação do Intestino/Digestão',
+            nome: 'Avaliação do Intestino e Digestão',
             perguntas: [
                 {
                     texto: 'Como está o funcionamento do seu intestino?',
@@ -341,13 +340,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     if (temaAtual < temas.length) {
                         mostrarProximaPerguntaMultiplaEscolha();
                     } else {
-                        mcqContainer.innerHTML = '<p>Obrigado! Aqui estão suas pontuações:</p>';
-                        Object.keys(pontuacoes).forEach(tema => {
-                            const p = document.createElement('p');
-                            p.textContent = `${tema}: ${pontuacoes[tema]} pontos`;
-                            mcqContainer.appendChild(p);
-                        });
-                        console.log('Pontuações:', pontuacoes);
+                        const sortedPontuacoes = Object.keys(pontuacoes)
+                            .map(tema => ({ tema, pontos: pontuacoes[tema] }))
+                            .sort((a, b) => b.pontos - a.pontos);
+    
+                        localStorage.setItem('pontuacoes', JSON.stringify(sortedPontuacoes));
+                        window.location.href = 'resultado.html';
                     }
                 }
             });
@@ -378,4 +376,47 @@ document.addEventListener('DOMContentLoaded', (event) => {
     atualizarPergunta();
 });
 // end parte 1 
+
+//pagina de resultado
+// Função para animar a barra de progresso
+// Função para verificar se a seção de skills está visível na tela
+function isSkillsSectionVisible() {
+    const skillsSection = document.getElementById('skills-section');
+    const rect = skillsSection.getBoundingClientRect();
+    return rect.top - window.innerHeight < 0 && rect.bottom >= 0;
+}
+
+// Função para animar a barra de progresso
+function animateProgressBar(progressBarId, targetValue,interval) {
+    let progress = 0;
+    const progressBar = document.getElementById(progressBarId);
+
+    const intervalId = setInterval(() => {
+        if (progress >= targetValue) {
+            clearInterval(intervalId);
+        } else {
+            progress++;
+            progressBar.style.width = `${progress}%`;
+        }
+    }, interval); // Intervalo de atualização da animação (em milissegundos)
+}
+// Função para verificar o scroll e iniciar a animação quando a seção de skills estiver visível
+function checkScrollAndAnimate(){
+    if (isSkillsSectionVisible()){
+        // Chamando a função de animação para cada barra de progresso
+            animateProgressBar('skil_1',100,30);
+            animateProgressBar('skil_2',90,35); 
+            animateProgressBar('skil_3',75,38); 
+            animateProgressBar('skil_4',60,40); 
+            animateProgressBar('skil_5',50,55); 
+            animateProgressBar('skil_6',40,60); 
+            animateProgressBar('skil_7',33,40); 
+            animateProgressBar('skil_8',25,90); 
+            animateProgressBar('skil_9',10,70); 
+            window.removeEventListener('scroll', checkScrollAndAnimate); // Remove o evento de scroll após iniciar a animação
+    }
+}
+// Adicionando o evento de scroll para verificar quando a seção de skills está visível
+window.addEventListener('scroll', checkScrollAndAnimate);
+//End Barra de Proguesso
 
