@@ -1,24 +1,20 @@
 //formulario 1
 document.addEventListener('DOMContentLoaded', (event) => {
-    const formContainer = document.getElementById('form-container');
-    const formLabel = document.getElementById('form-label');
-    const userInput = document.getElementById('user-input');
-    const continuarBtn = document.getElementById('continuar');
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const idadeInput = document.getElementById('idade');
+    const pesoInput = document.getElementById('peso');
+    const alturaInput = document.getElementById('altura');
+    const continuarBtn = document.getElementById('continuarBtn');
+    const formContainer = document.getElementById('formContainer');
+    const informacao_form = document.getElementById('info')
     //multipla escolha
     const mcqContainer = document.getElementById('multiple-choice-container');
     const mcqLabel = document.getElementById('mcq-label');
     const mcqOptions = document.getElementById('mcq-options');
     const mcqContinuarBtn = document.getElementById('mcq-continuar');
-    const resultadoDiv = document.getElementById('resultado');
+ 
     
-    const perguntas = [
-        'Qual é o seu nome?',
-        'Qual é a sua idade?',
-        'Qual é o seu peso?',
-        'Qual é a sua altura?',
-        'Digite seu e-mail: ',
-        'Insira seu cpf para acompanharmos sua evolução'
-    ];
 
     const temas = [
         {
@@ -178,10 +174,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 11/11] Selecione, se existir, o sintoma que mais te incomoda',
-                    opcoes: ['nausea, perda de peso', 'dor abdominal', 'queda de pressão sem motivo', 'alteração de humor','depressão','ansiedade'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile'],
-                    pontuacao: [1, 1, 1, 1, 2, 3, 3]
+                    texto: '[Avaliação do Estresse 11/11] Selecione, se existir, o sintoma que mais te incomoda:',
+                    opcoes: ['nausea, perda de peso', 'dor abdominal', 'queda de pressão sem motivo', 'alteração de humor','depressão','ansiedade','Nem um'],
+                    icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired','fa-smile'],
+                    pontuacao: [2, 2, 2, 2, 3, 3, 3,0]
                 },
                 
             ]
@@ -190,10 +186,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Tratamento de Tireoide',
             perguntas: [
                 {
-                    texto: '[Avaliação da Tireoide 1/1] Selecione  o sintomas  que você possui:',
-                    opcoes: ['Ganha peso fácil', 'Sente mais frio que o normal', 'Prisão de ventre', 'Pele ressecada', 'Dificuldade para perder peso','Colesterol Alto', 'Queda de Cabelo','Unhas fracas','Dores','Rigidez nos musculos','Retenção de Liquido','Problemas de Memória','Depressão','Fadiga','Ansiedade','Cansaço'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile'],
-                    pontuacao: [3, 3, 3, 3, 3, 4, 4, 2, 1, 2, 2, 2, 2, 4, 1, 4, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
+                    texto: '[Avaliação da Tireoide 1/1] Selecione, se existir, o sintoma que mais te incomoda:',
+                    opcoes: ['Ganha peso fácil', 'Sente mais frio que o normal', 'Prisão de ventre', 'Pele ressecada', 'Dificuldade para perder peso','Colesterol Alto', 'Queda de Cabelo','Unhas fracas','Dores','Rigidez nos musculos','Retenção de Liquido','Problemas de Memória','Depressão','Fadiga','Ansiedade','Cansaço','Nem um'],
+                    icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
+                    pontuacao: [5, 5, 5, 5, 5, 6, 6, 5, 5, 5, 5, 5, 5, 7, 5, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
                 }
             ]
         },
@@ -203,19 +199,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 {
                     texto: '[Avaliação da Ansiedade/Depressão 1/4] Qual o nível da sua ansiedade?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
                     texto: '[Avaliação da Ansiedade/Depressão 2/4]Qual o nível da sua depressão?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
                     texto: '[Avaliação da Ansiedade/Depressão 3/4]Você é uma pessoa preocupada?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
@@ -231,9 +227,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Patologias e Articulações',
             perguntas: [
                 {
-                    texto: '[Avaliação das Patologias 1/1] Selecione a(s) patologia(s) que você possui além da fibromialgia:',
+                    texto: '[Avaliação das Patologias 1/1] Selecione a patologia que você possui além da fibromialgia:',
                     opcoes: ['Tendinite', 'Hernia de Disco', 'Artrite/Artrose', 'Epicondilite', 'Fascite', 'Dor na coluna','Lupus','Artrite Reumatoide','Sacroileite','Bursite','Nem uma das opções'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
                     pontuacao: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
                 }
             ]
@@ -244,13 +240,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 {
                     texto: '[Avaliação do intestino 1/8] Como está o funcionamento do seu intestino?',
                     opcoes: ['muito preso', 'preso','solto', 'lento', 'normal'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
                     texto: '[Avaliação do intestino 2/8] Você tem gases/cólicas?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
@@ -268,7 +264,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 {
                     texto: '[Avaliação do intestino 5/8] Você tem fadiga mesmo após uma ótima noite de sono?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
-                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
+                    icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
@@ -295,19 +291,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     ];
 
-    const respostas = {};
-    let perguntaAtual = 0;
+
     //multipla escolha
     let temaAtual = 0;
     let subPerguntaAtual = 0;
     const pontuacoes = {};
 
-    function atualizarPergunta() {
-        formLabel.textContent = perguntas[perguntaAtual];
-        userInput.value = '';
-        userInput.type = perguntaAtual === 1 ? 'number' : 'text'; // Tipo de input para idade
-        userInput.type = perguntaAtual === 2 || perguntaAtual === 3 ? 'number' : 'text'; // Tipo de input para peso e altura
-    }
+
 
     function mostrarProximaPerguntaMultiplaEscolha() {
         const tema = temas[temaAtual];
@@ -345,6 +335,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             .sort((a, b) => b.pontos - a.pontos);
     
                         localStorage.setItem('pontuacoes', JSON.stringify(sortedPontuacoes));
+                        calcularIMC();
                         window.location.href = 'resultado.html';
                     }
                 }
@@ -352,33 +343,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
             mcqOptions.appendChild(btn);
         });
     }
+    //calculando imc
+    function calcularIMC() {
+        const peso = parseInt(pesoInput.value);
+        const altura = parseInt(alturaInput.value);
+        altura_mtrs = altura / 100;
+        const imc = peso / (altura_mtrs * altura_mtrs);
+        localStorage.setItem('imc', imc.toFixed(2));
+    }
 
     continuarBtn.addEventListener('click', () => {
-        const resposta = userInput.value.trim();
-        if (resposta) {
-            respostas[perguntas[perguntaAtual]] = resposta;
-            perguntaAtual++;
+        const nome = nomeInput.value.trim();
+        const email = emailInput.value.trim();
+        const idade = idadeInput.value.trim();
+        const peso = pesoInput.value.trim();
+        const altura = alturaInput.value.trim();
+        if (nome && email && idade && peso && altura) {
+            // Aqui você pode armazenar os valores conforme necessário
+            localStorage.setItem('nome', nome);
+            localStorage.setItem('email', email);
+            localStorage.setItem('idade', idade);
+            localStorage.setItem('peso', peso);
+            localStorage.setItem('altura', altura);
 
-            if (perguntaAtual < perguntas.length) {
-                atualizarPergunta();
-            } else {
-                formContainer.style.display = 'none';
-                mcqContainer.style.display = 'block';
-                mostrarProximaPerguntaMultiplaEscolha()
-                // Aqui você pode enviar as respostas para um servidor ou usar conforme necessário
-            }
+            formContainer.style.display = 'none';
+            informacao_form.style.display = 'none';
+            mcqContainer.style.display = 'block';
+            mostrarProximaPerguntaMultiplaEscolha();
         } else {
-            alert('Por favor, preencha o campo.');
+            alert('Por favor, preencha todos os campos.');
         }
     });
-
     // Inicia com a primeira pergunta
     atualizarPergunta();
 });
 // end parte 1 
 
 //pagina de resultado
-// Função para animar a barra de progresso
 // Função para verificar se a seção de skills está visível na tela
 function isSkillsSectionVisible() {
     const skillsSection = document.getElementById('skills-section');

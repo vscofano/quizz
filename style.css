@@ -18,10 +18,74 @@ span{
 
 .vertical-divider {
     border-right: 1px solid var(--cor-primaria); /* Estilo da linha vertical */
-
 }
+#coluna_esquerda{
+    position: sticky;
+        top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+/*formulario*/
+#formContainer {
+    width: 90%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os rótulos e inputs */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"]{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="number"] {
+    flex: 1;
+    width: calc(50% - 10px); /* 50% do espaço disponível menos a margem entre os inputs */
+    margin-right: 10px; /* Espaço entre os inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão "Continuar" */
+#continuarBtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o botão ao passar o mouse */
+#continuarBtn:hover {
+    background-color: #0056b3;
+}
+.opcao-btn:hover{
+    color: white;
+}
+/*end*/
 #principal{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 #form-label{
@@ -75,6 +139,9 @@ span{
     background-color: var(--cor-primaria);
     border-color: #aaa;
 }
+.opcao-btn{
+    box-shadow: 2px 2px 1px gray;
+}
 
 /* Estilos para os ícones */
 .icon {
@@ -83,18 +150,7 @@ span{
 }
 
 /* Alterar a cor dos ícones */
-.icon.fa-frown {
-    color: red;
-}
-.icon.fa-meh {
-    color: orange;
-}
-.icon.fa-smile {
-    color: yellow;
-}
-.icon.fa-grin {
-    color: green;
-}
+
 
 /* Estilo para o botão selecionado */
 .opcao-btn-selecionado {
@@ -142,14 +198,51 @@ span{
 
 /*Responsivo Mobile*/
 @media only screen and (max-width: 500px) {
+    body{
+        padding: 5px 5px;
+    }
    #roleta{
     width: 300px;
    }
    #caixa_roleta{
    text-align: center;
    }
+   #linha_1,#linha_2,#linha_3,#linha4{
+    width: 90%;
+    margin: auto;
+   }
+
+   #coluna_esquerda{
+    position: static;
+    height: 20vh;
+    margin: auto;
+   }
+   #principal{
+    text-align: center;
+    margin-top: 5px;
+   }
+   #formContainer{
+    margin: auto;
+   }
+   .form-group {
+    display: block;
 }
 
+   input[type="number"] {
+    width: calc(95% ); /* 50% do espaço disponível menos a margem entre os inputs */
+    margin-right: 10px; /* Espaço entre os inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 15px;
+    float: left;
+    margin-bottom: 20px;
+}
+input[type="text"],
+input[type="email"]{
+   float: left;
+}
+}
 
 
 /*Responsivo tablet*/
