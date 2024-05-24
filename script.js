@@ -72,25 +72,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 1/6] Durante a noite você se sente cansado?',
+                    texto: '[Avaliação de Energia/disposição 3/6] Durante a noite você se sente cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 3/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
+                    texto: '[Avaliação de Energia/disposição 4/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
                     opcoes: ['muita', 'pouca', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 4/6] Durante a noite tarde você se sente cansado?',
+                    texto: '[Avaliação de Energia/disposição 5/6] Durante a noite tarde você se sente cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 5/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
+                    texto: '[Avaliação de Energia/disposição 6/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
                     opcoes: ['muita', 'pouca', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação da Memóra 1/2] Como está sua concentração',
+                    texto: '[Avaliação da Memóra 2/2] Como está sua concentração',
                     opcoes: ['ruim', 'regular', 'boa', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
@@ -242,49 +242,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Intestino e Digestão',
             perguntas: [
                 {
-                    texto: '[Avaliação do intestino 1/7] Como está o funcionamento do seu intestino?',
+                    texto: '[Avaliação do intestino 1/8] Como está o funcionamento do seu intestino?',
                     opcoes: ['muito preso', 'preso','solto', 'lento', 'normal'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 2/7] Você tem gases/cólicas?',
+                    texto: '[Avaliação do intestino 2/8] Você tem gases/cólicas?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 2/7] Após evacuar, você sente que não esvaziou completamentes?',
+                    texto: '[Avaliação do intestino 3/8] Após evacuar, você sente que não esvaziou completamentes?',
                     opcoes: ['Sim', 'Mais ou Menos','Não'],
                     icons: ['fa-tired', 'fa-frown', 'fa-smile'],
                     pontuacao: [0, 2, 4 ]
                 },
                 {
-                    texto: '[Avaliação do intestino 3/7] Você tem diarréia que persiste por 4 ou mais semanas?',
+                    texto: '[Avaliação do intestino 4/8] Você tem diarréia que persiste por 4 ou mais semanas?',
                     opcoes: ['Sim', 'Não'],
                     icons: ['fa-tired','fa-smile'],
                     pontuacao: [4, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 4/7] Você tem fadiga mesmo após uma ótima noite de sono?',
+                    texto: '[Avaliação do intestino 5/8] Você tem fadiga mesmo após uma ótima noite de sono?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 5/7] Você fica doente constantemente?',
+                    texto: '[Avaliação do intestino 6/8] Você fica doente constantemente?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 6/7] Você percebeu alterações no seu humor por um longo período de tempo? (TRISTEZ,DEPRESSÃO...)',
+                    texto: '[Avaliação do intestino 7/8] Você percebeu alterações no seu humor por um longo período de tempo? (TRISTEZ,DEPRESSÃO...)',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 7/7] Selecione o sintoma que persiste por 4 ou mais semanas',
+                    texto: '[Avaliação do intestino 8/8] Selecione o sintoma que persiste por 4 ou mais semanas',
                     opcoes: ['Dor abdominal', 'inchaço','Gases', 'Constipação', 'Nem um'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 4, 4, 4, 0]
