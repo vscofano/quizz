@@ -110,7 +110,7 @@ span{
 
 
 .img-tema {
-    width: 70%; /* Defina o tamanho desejado para a imagem */
+    width: 80%; /* Defina o tamanho desejado para a imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin-top: 10px;
     margin-bottom: 10px;
@@ -123,7 +123,22 @@ span{
 .tema {
     font-size: 25px; /* Defina o tamanho desejado para a fonte */
 }
-
+#skills-section a{
+   text-decoration: none;
+   color: white;
+}
+#skills-section button{
+    background-color: var(--cor-primaria);
+}
+#skills-section button:hover{
+    transform: scale(1.1); /* Ajuste o valor conforme necessário para o nível de zoom desejado */
+    transition: transform 0.3s ease; /* Define a transição suave com duração de 0.3 segundos e uma curva de aceleração suave */
+    background: green;
+}
+.product:hover {
+    transform: scale(1.1); /* Ajuste o valor conforme necessário para o nível de zoom desejado */
+    transition: transform 0.3s ease; /* Define a transição suave com duração de 0.3 segundos e uma curva de aceleração suave */
+}
 
 /*Responsivo Mobile*/
 @media only screen and (max-width: 500px) {
