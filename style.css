@@ -80,12 +80,15 @@ input[type="number"] {
 #continuarBtn:hover {
     background-color: #0056b3;
 }
+.opcao-btn{
+    text-transform: uppercase;
+}
 .opcao-btn:hover{
     color: white;
 }
 /*end*/
 #principal{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #form-label{
@@ -110,14 +113,25 @@ input[type="number"] {
     color: var(--cor-terciaria);
     float: right;
     text-transform: uppercase;
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 1px 1px 5px gray;
 }
 #continuar:hover{
     background-color: green;
 }
 
 #mcq-label{
-    font-size: 35px;
+    font-size: 30px;
+}
+#titulo-pergunta{
+    font-size: 32px;
+    text-transform: uppercase;
+    color: black;
+}
+#place{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: black;
+    
 }
 
 /* Estilos para os botões de opção */
@@ -127,11 +141,12 @@ input[type="number"] {
     padding: 10px 20px;
     margin: 10px 5px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: none;
     border-radius: 5px;
     background-color: #f0f0f0;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
+    box-shadow: 2px 2px 1px var(--cor-primaria);
 }
 
 /* Alterar o tamanho dos botões de opção */
@@ -140,13 +155,14 @@ input[type="number"] {
     border-color: #aaa;
 }
 .opcao-btn{
-    box-shadow: 2px 2px 1px gray;
+   
 }
 
 /* Estilos para os ícones */
 .icon {
     font-size: 24px; /* Alterar o tamanho do ícone */
     margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    color: #000000a8;
 }
 
 /* Alterar a cor dos ícones */
@@ -156,6 +172,25 @@ input[type="number"] {
 .opcao-btn-selecionado {
     background-color: #d0d0d0;
     border-color: #888;
+}
+/*Barra de Proguesso avanco questões*/
+#progress-title{
+    font-size: 20px;
+}
+#progress-container {
+    width: 80%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    margin: auto;
+}
+#progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color:var(--cor-primaria);
+    border-radius: 25px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
 }
 
 
@@ -241,6 +276,10 @@ input[type="number"] {
 input[type="text"],
 input[type="email"]{
    float: left;
+}
+#progress-container{
+    width: 95%;
+    margin-bottom: 25px;
 }
 }
 

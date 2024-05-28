@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //multipla escolha
     const mcqContainer = document.getElementById('multiple-choice-container');
     const mcqLabel = document.getElementById('mcq-label');
+    const titlulo_pergunta = document.getElementById('titulo-pergunta');
+    const pergunta_atual = document.getElementById('place')
     const mcqOptions = document.getElementById('mcq-options');
     const mcqContinuarBtn = document.getElementById('mcq-continuar');
  
@@ -21,31 +23,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Sono e Descanso',
             perguntas: [
                 {
-                    texto: '[Avaliação do sono 1/5] Qual é a qualidade do seu sono?',
+                    titulo:'Avaliação do sono',
+                    tamanho: 'Pergunta 1/5 : ',
+                    texto: ' Qual é a qualidade do seu sono?',
                     opcoes: ['ruim', 'regular', 'bom', 'ótimo'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do sono 2/5] Você acorda cansado?',
+                    titulo:'Avaliação do sono',
+                    tamanho:'Pergunta 2/5 :',
+                    texto: 'Você acorda cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do sono 3/5] Você acorda cansado?',
+                    titulo:'Avaliação do sono',
+                    tamanho:'Pergunta 3/5 :',
+                    texto: 'Você acorda cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [1, 2, 3, 4]
                 },
                 {
-                    texto: '[Avaliação do sono 4/5] Ao acordar, tem dificuldade em realizar tarefas cotidianas?',
+                    titulo:'Avaliação do sono',
+                    tamanho:'Pergunta 4/5 :',
+                    texto: 'Ao acordar, tem dificuldade em realizar tarefas cotidianas?',
                     opcoes: ['muita', 'pouco', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do sono 5/5] Usa remédios para dormir?',
+                    titulo:'Avaliação do sono',
+                    tamanho:'Pergunta 5/5 :',
+                    texto: 'Usa remédios para dormir?',
                     opcoes: ['não uso', 'uso 1', 'uso 2', 'uso 2 ou mais'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [1, 2, 3, 4]
@@ -56,37 +68,49 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Energia e Disposição',
             perguntas: [
                 {
-                    texto: '[Avaliação de Energia/disposição 1/6] Durante a manhã você se sente cansado?',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 1/6 :',
+                    texto: 'Durante a manhã você se sente cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 2/6] Durante a manhã, tem dificuldade em realizar tarefas cotidianas',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 2/6 :',
+                    texto: 'Durante a manhã, tem dificuldade em realizar tarefas cotidianas',
                     opcoes: ['muita pouca', 'pouca', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 3/6] Durante a noite você se sente cansado?',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 3/6 :',
+                    texto: 'Durante a noite você se sente cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 4/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 4/6 :',
+                    texto: 'Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
                     opcoes: ['muita', 'pouca', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 5/6] Durante a noite tarde você se sente cansado?',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 5/6 :',
+                    texto: 'Durante a noite tarde você se sente cansado?',
                     opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação de Energia/disposição 6/6] Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
+                    titulo:'Avaliação de Energia/disposição',
+                    tamanho:'Pergunta 6/6 :',
+                    texto: 'Durante a noite, tem dificuldade em realizar tarefas cotidianas?',
                     opcoes: ['muita', 'pouca', 'regular', 'nem uma'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
@@ -97,13 +121,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Suplemento para Memória',
             perguntas: [
                 {
-                    texto: '[Avaliação da Memóra 1/2] Como está sua memória?',
+                    titulo:'[Avaliação da Memóra',
+                    tamanho:'Pergunta 1/2 :',
+                    texto: 'Como está sua memória?',
                     opcoes: ['ruim', 'regular', 'boa', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação da Memóra 2/2] Como está sua concentração',
+                    titulo:'Avaliação da Memóra',
+                    tamanho:'Pergunta 2/2 :',
+                    texto: 'Como está sua concentração',
                     opcoes: ['ruim', 'regular', 'boa', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
@@ -114,67 +142,89 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Tratamento para Estresse',
             perguntas: [
                 {
-                    texto: '[Avaliação do Estresse 1/11] Com que frequência você ficou aborrecido por causa de algo que aconteceu inesperadamente?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 1/11 :',
+                    texto: 'Com que frequência você ficou aborrecido por causa de algo que aconteceu inesperadamente?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 2/11] Com que frequência você sentiu que foi incapaz de controlar coisas importantes na sua vida',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 2/11 :',
+                    texto: 'Com que frequência você sentiu que foi incapaz de controlar coisas importantes na sua vida',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 3/11] Com que frequência você esteve nervoso ou estressado?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 3/11 :',
+                    texto: 'Com que frequência você esteve nervoso ou estressado?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 4/11] Com que frequência você esteve confiante em sua capacidade de lidar com seus problemas pessoais?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta  4/11:',
+                    texto: 'Com que frequência você esteve confiante em sua capacidade de lidar com seus problemas pessoais?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 5/11] Com que freqüência você sentiu que as coisas aconteceram da maneira que você esperava?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 5/11 :',
+                    texto: ' Com que freqüência você sentiu que as coisas aconteceram da maneira que você esperava?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 6/11] Com que freqüência você achou que não conseguiria lidar com todas as coisas que tinha por fazer?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 6/11 :',
+                    texto: 'Com que freqüência você achou que não conseguiria lidar com todas as coisas que tinha por fazer?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 7/11] Com que freqüência você foi capaz de controlar irritações na sua vida?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta  7/11:',
+                    texto: 'Com que freqüência você foi capaz de controlar irritações na sua vida?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 8/11] Com que freqüência você sentiu que todos os aspectos de sua vida estavam sob controle?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 8/11 :',
+                    texto: 'Com que freqüência você sentiu que todos os aspectos de sua vida estavam sob controle?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 9/11] Com que freqüência você esteve bravo por causa de coisas que estiveram fora de seu controle?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 9/11 :',
+                    texto: 'Com que freqüência você esteve bravo por causa de coisas que estiveram fora de seu controle?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 10/11] Com que freqüência você sentiu que os problemas acumularam tanto que você não conseguiria resolvê-los?',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 10/11 :',
+                    texto: 'Com que freqüência você sentiu que os problemas acumularam tanto que você não conseguiria resolvê-los?',
                     opcoes: ['muito frequente', 'às vezes', 'quase nunca', 'nunca'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1]
                 },
                 {
-                    texto: '[Avaliação do Estresse 11/11] Selecione, se existir, o sintoma que mais te incomoda:',
+                    titulo:'Avaliação do Estresse',
+                    tamanho:'Pergunta 11/11 :',
+                    texto: 'Selecione, se existir, o sintoma que mais te incomoda:',
                     opcoes: ['nausea, perda de peso', 'dor abdominal', 'queda de pressão sem motivo', 'alteração de humor','depressão','ansiedade','Nem um'],
                     icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired','fa-smile'],
                     pontuacao: [2, 2, 2, 2, 3, 3, 3,0]
@@ -186,7 +236,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Tratamento de Tireoide',
             perguntas: [
                 {
-                    texto: '[Avaliação da Tireoide 1/1] Selecione, se existir, o sintoma que mais te incomoda:',
+                    titulo:'Avaliação da Tireoide',
+                    tamanho:'Pergunta 1/1 :',
+                    texto: 'Selecione, se existir, o sintoma que mais te incomoda:',
                     opcoes: ['Ganha peso fácil', 'Sente mais frio que o normal', 'Prisão de ventre', 'Pele ressecada', 'Dificuldade para perder peso','Colesterol Alto', 'Queda de Cabelo','Unhas fracas','Dores','Rigidez nos musculos','Retenção de Liquido','Problemas de Memória','Depressão','Fadiga','Ansiedade','Cansaço','Nem um'],
                     icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
                     pontuacao: [5, 5, 5, 5, 5, 6, 6, 5, 5, 5, 5, 5, 5, 7, 5, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
@@ -197,25 +249,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Ansiedade e Depressão',
             perguntas: [
                 {
-                    texto: '[Avaliação da Ansiedade/Depressão 1/4] Qual o nível da sua ansiedade?',
+                    titulo:'Avaliação da Ansiedade/Depressão',
+                    tamanho:'Pergunta 1/4 :',
+                    texto: 'Qual o nível da sua ansiedade?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação da Ansiedade/Depressão 2/4]Qual o nível da sua depressão?',
+                    titulo:'Avaliação da Ansiedade/Depressão',
+                    tamanho:'Pergunta 2/4 :',
+                    texto: 'Qual o nível da sua depressão?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação da Ansiedade/Depressão 3/4]Você é uma pessoa preocupada?',
+                    titulo:'Avaliação da Ansiedade/Depressão',
+                    tamanho:'Pergunta 3/4 :',
+                    texto: 'Você é uma pessoa preocupada?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação da Ansiedade/Depressão 4/4]Usa algum remédio controlado?',
+                    titulo:'Avaliação da Ansiedade/Depressão',
+                    tamanho:'Pergunta 4/4 :',
+                    texto: 'Usa algum remédio controlado?',
                     opcoes: ['dois ou mais', 'dois','um', 'nem um'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
                     pontuacao: [4, 3, 2, 0]
@@ -227,7 +287,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Patologias e Articulações',
             perguntas: [
                 {
-                    texto: '[Avaliação das Patologias 1/1] Selecione a patologia que você possui além da fibromialgia:',
+                    titulo:'Avaliação das Patologias',
+                    tamanho:'Pergunta 1/1 :',
+                    texto: 'Selecione a patologia que você possui além da fibromialgia:',
                     opcoes: ['Tendinite', 'Hernia de Disco', 'Artrite/Artrose', 'Epicondilite', 'Fascite', 'Dor na coluna','Lupus','Artrite Reumatoide','Sacroileite','Bursite','Nem uma das opções'],
                     icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
                     pontuacao: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
@@ -238,49 +300,65 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Intestino e Digestão',
             perguntas: [
                 {
-                    texto: '[Avaliação do intestino 1/8] Como está o funcionamento do seu intestino?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 1/8 :',
+                    texto: 'Como está o funcionamento do seu intestino?',
                     opcoes: ['muito preso', 'preso','solto', 'lento', 'normal'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 2/8] Você tem gases/cólicas?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 2/8 :',
+                    texto: 'Você tem gases/cólicas?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 3/8] Após evacuar, você sente que não esvaziou completamentes?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 3/8 :',
+                    texto: 'Após evacuar, você sente que não esvaziou completamentes?',
                     opcoes: ['Sim', 'Mais ou Menos','Não'],
                     icons: ['fa-tired', 'fa-frown', 'fa-smile'],
                     pontuacao: [0, 2, 4 ]
                 },
                 {
-                    texto: '[Avaliação do intestino 4/8] Você tem diarréia que persiste por 4 ou mais semanas?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 4/8 :',
+                    texto: 'Você tem diarréia que persiste por 4 ou mais semanas?',
                     opcoes: ['Sim', 'Não'],
                     icons: ['fa-tired','fa-smile'],
                     pontuacao: [4, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 5/8] Você tem fadiga mesmo após uma ótima noite de sono?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 5/8 :',
+                    texto: 'Você tem fadiga mesmo após uma ótima noite de sono?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile','fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 6/8] Você fica doente constantemente?',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 6/8 :',
+                    texto: 'Você fica doente constantemente?',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 7/8] Você percebeu alterações no seu humor por um longo período de tempo? (TRISTEZ,DEPRESSÃO...)',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 7/8 :',
+                    texto: 'Você percebeu alterações no seu humor por um longo período de tempo? (TRISTEZ,DEPRESSÃO...)',
                     opcoes: ['Demais', 'Muito','Media', 'Pouco', 'Nada'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 3, 2, 1, 0]
                 },
                 {
-                    texto: '[Avaliação do intestino 8/8] Selecione o sintoma que persiste por 4 ou mais semanas',
+                    titulo:'Avaliação do intestino',
+                    tamanho:'Pergunta 8/8 :',
+                    texto: ' Selecione o sintoma que persiste por 4 ou mais semanas',
                     opcoes: ['Dor abdominal', 'inchaço','Gases', 'Constipação', 'Nem um'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile', 'fa-smile'],
                     pontuacao: [4, 4, 4, 4, 0]
@@ -297,14 +375,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let subPerguntaAtual = 0;
     const pontuacoes = {};
 
-
+    function atualizarBarraDeProgresso() {
+    const totalPerguntas = temas.reduce((total, tema) => total + tema.perguntas.length, 0);
+    const perguntasRespondidas = temas.slice(0, temaAtual).reduce((total, tema) => total + tema.perguntas.length, 0) + subPerguntaAtual + 1;
+    const progresso = (perguntasRespondidas / totalPerguntas) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = `${progresso}%`;
+    progressBar.textContent = `${Math.round(progresso)}%`;
+    const progressTitle = document.getElementById('progress-title');
+    progressTitle.textContent = 'Progresso do Questionário';
+}
 
     function mostrarProximaPerguntaMultiplaEscolha() {
         const tema = temas[temaAtual];
         const subPergunta = tema.perguntas[subPerguntaAtual];
-        
         mcqLabel.textContent = subPergunta.texto;
-        mcqOptions.innerHTML = '';
+        titlulo_pergunta.textContent = subPergunta.titulo;
+        pergunta_atual.textContent = subPergunta.tamanho
+ Pergunta :       mcqOptions.innerHTML = ''; //limmpando a div com inner.html
         
         subPergunta.opcoes.forEach((opcao, index) => {
             const btn = document.createElement('button');
@@ -342,6 +430,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
             mcqOptions.appendChild(btn);
         });
+        atualizarBarraDeProgresso();
     }
     //calculando imc
     function calcularIMC() {

@@ -18,7 +18,12 @@
                 <img id="logo" src="img/logo.webp" alt="logo">
             </div>
             <h2 id="info" class="text-center mt-3"><span>Preencha o Formulário</span> e clique em continuar para iniciar o <span>Quizz</span></h2>
-        </div>
+        </div> <br>
+
+        <h3 class="text-center" id="progress-title">Progresso do Questionário</h3> 
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div> 
      
     </div>
 
@@ -55,8 +60,11 @@
                 </div>
                 
                 <div id="multiple-choice-container" style="display:none;"><!--multipls escolha-->
+                    <div class="text-center"><label id="titulo-pergunta"></label></div>
+                    <div class="text-center"><label id="place"></label></div>
                     <div class="text-center"><label id="mcq-label"></label></div>
-                    <div class="text-center m-5" id="mcq-options"></div> <br>
+                    <div class="text-center m-5" id="mcq-options"></div>
+
                 </div>
                 <div id="resultado" style="margin-top: 20px;"></div>
             
