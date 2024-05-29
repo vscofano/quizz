@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 {
                     titulo:'Avaliação do sono',
                     tamanho:'Pergunta 2/5 :',
-                    texto: 'Selecione a intensidade da sua dor ao acordar',
-                    opcoes: ['muito', 'pouco', 'regular', 'nao sinto dor'],
+                    texto: 'Você acorda cansado?',
+                    opcoes: ['muito', 'pouco', 'regular', 'excelente'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
-                    pontuacao: [4, 3, 2, 0]
+                    pontuacao: [4, 3, 2, 1]
                 },
                 {
                     titulo:'Avaliação do sono',
@@ -455,8 +455,7 @@ function mostrarProximaPerguntaMultiplaEscolha() {
 
 // Inicialização
 mostrarProximaPerguntaMultiplaEscolha();
-
-
+    
     //calculando imc
     function calcularIMC() {
         const peso = parseInt(pesoInput.value);
@@ -467,6 +466,8 @@ mostrarProximaPerguntaMultiplaEscolha();
     }
 
     continuarBtn.addEventListener('click', () => {
+        const proguess_bar = document.getElementById('progress-container')
+        const proguess_titulo = document.getElementById('progress-title')
         const nome = nomeInput.value.trim();
         const email = emailInput.value.trim();
         const idade = idadeInput.value.trim();
@@ -481,6 +482,8 @@ mostrarProximaPerguntaMultiplaEscolha();
             localStorage.setItem('altura', altura);
 
             formContainer.style.display = 'none';
+            proguess_bar.style.display = 'block'
+            proguess_titulo.style.display = 'block'
             informacao_form.style.display = 'none';
             mcqContainer.style.display = 'block';
             mostrarProximaPerguntaMultiplaEscolha();

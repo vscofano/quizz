@@ -252,6 +252,9 @@ input[type="number"] {
 #pain-level-container {
     margin-top: 20px;
 }
+#progress-container,#progress-title{
+    display: none;
+}
 
 /*Responsivo Mobile*/
 @media only screen and (max-width: 500px) {
