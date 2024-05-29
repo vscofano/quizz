@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 {
                     titulo:'Avaliação do sono',
                     tamanho:'Pergunta 2/5 :',
-                    texto: 'Você acorda cansado?',
-                    opcoes: ['muito', 'pouco', 'regular', 'excelente'],
+                    texto: 'Selecione a intensidade da sua dor ao acordar',
+                    opcoes: ['muito', 'pouco', 'regular', 'nao sinto dor'],
                     icons: ['fa-tired', 'fa-frown', 'fa-meh', 'fa-smile'],
-                    pontuacao: [4, 3, 2, 1]
+                    pontuacao: [4, 3, 2, 0]
                 },
                 {
                     titulo:'Avaliação do sono',
@@ -386,13 +386,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     progressTitle.textContent = 'Progresso do Questionário';
 }
 
-    function mostrarProximaPerguntaMultiplaEscolha() {
-        const tema = temas[temaAtual];
-        const subPergunta = tema.perguntas[subPerguntaAtual];
+function mostrarProximaPerguntaMultiplaEscolha() {
+    const tema = temas[temaAtual];
+    const subPergunta = tema.perguntas[subPerguntaAtual];
+    
+    const container = document.getElementById('multiple-choice-container'); // Supondo que este seja o container das perguntas
+
+    // Adicionar a classe fade-out
+    container.classList.add('fade-out');
+
+    setTimeout(() => {
+        // Atualizar o conteúdo da pergunta
         mcqLabel.textContent = subPergunta.texto;
         titlulo_pergunta.textContent = subPergunta.titulo;
-        pergunta_atual.textContent = subPergunta.tamanho
- Pergunta :       mcqOptions.innerHTML = ''; //limmpando a div com inner.html
+        pergunta_atual.textContent = subPergunta.tamanho;
+        
+        mcqOptions.innerHTML = ''; // Limpando a div com innerHTML
         
         subPergunta.opcoes.forEach((opcao, index) => {
             const btn = document.createElement('button');
@@ -430,8 +439,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
             mcqOptions.appendChild(btn);
         });
+
+        // Remover a classe fade-out e adicionar a classe fade-in
+        container.classList.remove('fade-out');
+        container.classList.add('fade-in');
+
+        // Remover a classe fade-in após a transição
+        setTimeout(() => {
+            container.classList.remove('fade-in');
+        }, 500);
+
         atualizarBarraDeProgresso();
-    }
+    }, 500); // Tempo correspondente ao tempo de transição do fade-out
+}
+
+// Inicialização
+mostrarProximaPerguntaMultiplaEscolha();
+
+
     //calculando imc
     function calcularIMC() {
         const peso = parseInt(pesoInput.value);
