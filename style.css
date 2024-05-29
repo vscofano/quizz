@@ -276,6 +276,7 @@ input[type="number"] {
     position: static;
     height: 20vh;
     margin: auto;
+    display: none;
    }
    #principal{
     text-align: center;
