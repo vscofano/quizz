@@ -155,9 +155,6 @@ input[type="number"] {
     background-color: var(--cor-primaria);
     border-color: #aaa;
 }
-.opcao-btn{
-   
-}
 
 /* Estilos para os ícones */
 .icon {
@@ -196,25 +193,52 @@ input[type="number"] {
 
 
 /*Página de Resultados*/
+#linha_2,#linha_3,#linha_4{
+    margin-bottom: 100px;
+}
 .progress-bar {
     transition: width 2.5s ease; /* Transição suave da largura da barra de progresso em 1 segundo */
   }
-
-
-.img-tema {
-    width: 80%; /* Defina o tamanho desejado para a imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-top: 10px;
-    margin-bottom: 10px;
+.icone-tema{
+    width: 12%;
+    float: left;
+}
+.titulo_indicacao{
+    font-size: 15px;
+    color: black;
+    float: left;
     
+    
+}
+.img-tema {
+    width: 35%; /* Defina o tamanho desejado para a imagem */
+    margin-bottom: 30px;
+    margin-top: 30px;
+   
 }
 .product{
     text-align: center;
+    border-radius: 10px;
+}
+.preco_edit{
+    color: green;
+    text-transform: uppercase;
+    float: left;
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
 .tema {
-    font-size: 25px; /* Defina o tamanho desejado para a fonte */
+    font-size: 20px; /* Defina o tamanho desejado para a fonte */
+    float: left;
+    margin-left: 10px;
+    color: black;
 }
+.carrinho{
+    display: none;
+    width: 90%;
+}
+
 #skills-section a{
    text-decoration: none;
    color: white;
@@ -223,16 +247,20 @@ input[type="number"] {
     background-color: var(--cor-primaria);
 }
 #skills-section button:hover{
-    transform: scale(1.1); /* Ajuste o valor conforme necessário para o nível de zoom desejado */
-    transition: transform 0.3s ease; /* Define a transição suave com duração de 0.3 segundos e uma curva de aceleração suave */
+    transform: scale(1.1); /
+    transition: transform 0.3s ease;
     background: green;
 }
 .product:hover {
-    transform: scale(1.1); /* Ajuste o valor conforme necessário para o nível de zoom desejado */
-    transition: transform 0.3s ease; /* Define a transição suave com duração de 0.3 segundos e uma curva de aceleração suave */
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+.product:hover button{
+    display: block;
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
 }
 
-/*Efeito ao trocar de pergunta*/
 .fade-out {
     opacity: 0;
     transition: opacity 0.5s ease-out;
@@ -267,11 +295,17 @@ input[type="number"] {
    #caixa_roleta{
    text-align: center;
    }
-   #linha_1,#linha_2,#linha_3,#linha4{
+   #linha_2,#linha_3,#linha_4{
     width: 90%;
     margin: auto;
    }
-
+   #linha_2,#linha_3,#linha_4, .product,.product,.product{
+    margin-bottom: 20px;
+   }
+   .carrinho{
+    display: block;
+    width: 100%;
+   }
    #coluna_esquerda{
     position: static;
     height: 20vh;
@@ -311,3 +345,15 @@ input[type="email"]{
 
 
 /*Responsivo tablet*/
+@media only screen and (min-width: 700px) and (max-width: 1100px) {
+    #roleta{
+        width: 400px;
+    }
+    #dica{
+        text-align: left;
+    }
+    #titulo{
+        float: left;
+        margin-left: 20px;
+    }
+}
