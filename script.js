@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const pergunta_atual = document.getElementById('place')
     const mcqOptions = document.getElementById('mcq-options');
     const mcqContinuarBtn = document.getElementById('mcq-continuar');
- 
-    
+    const continueButton = document.getElementById('continue-button');
+
 
     const temas = [
         {
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             nome: 'Suplemento para Memória',
             perguntas: [
                 {
-                    titulo:'[Avaliação da Memóra',
+                    titulo:'Avaliação da Memóra',
                     tamanho:'Pergunta 1/2 :',
                     texto: 'Como está sua memória?',
                     opcoes: ['ruim', 'regular', 'boa', 'excelente'],
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     texto: 'Selecione, se existir, o sintoma que mais te incomoda:',
                     opcoes: ['Ganha peso fácil', 'Sente mais frio que o normal', 'Prisão de ventre', 'Pele ressecada', 'Dificuldade para perder peso','Colesterol Alto', 'Queda de Cabelo','Unhas fracas','Dores','Rigidez nos musculos','Retenção de Liquido','Problemas de Memória','Depressão','Fadiga','Ansiedade','Cansaço','Nem um'],
                     icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
-                    pontuacao: [5, 5, 5, 5, 5, 6, 6, 5, 5, 5, 5, 5, 5, 7, 5, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
+                    pontuacao: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
                 }
             ]
         },
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     texto: 'Selecione a patologia que você possui além da fibromialgia:',
                     opcoes: ['Tendinite', 'Hernia de Disco', 'Artrite/Artrose', 'Epicondilite', 'Fascite', 'Dor na coluna','Lupus','Artrite Reumatoide','Sacroileite','Bursite','Nem uma das opções'],
                     icons: ['fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-tired', 'fa-smile'],
-                    pontuacao: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
+                    pontuacao: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0] // Pontuação zero para "Não tenho nenhum desses sintomas"
                 }
             ]
         },
@@ -400,45 +400,73 @@ function mostrarProximaPerguntaMultiplaEscolha() {
         mcqLabel.textContent = subPergunta.texto;
         titlulo_pergunta.textContent = subPergunta.titulo;
         pergunta_atual.textContent = subPergunta.tamanho;
-        
+
         mcqOptions.innerHTML = ''; // Limpando a div com innerHTML
-        
+
+        const selectedOptions = new Set(); // Set para rastrear opções selecionadas
+
         subPergunta.opcoes.forEach((opcao, index) => {
             const btn = document.createElement('button');
-            btn.className = 'opcao-btn'; // Adiciona a classe ao botão
+            btn.className = 'opcao-btn';
             const icon = document.createElement('i');
-            icon.className = `fas ${subPergunta.icons[index]} icon`; // Adiciona a classe ao ícone
-    
+            icon.className = `fas ${subPergunta.icons[index]} icon`;
+
             btn.appendChild(icon);
-            btn.appendChild(document.createTextNode(` ${opcao}`)); // Adiciona um espaço entre o ícone e o texto
-    
+            btn.appendChild(document.createTextNode(` ${opcao}`));
+
             btn.addEventListener('click', () => {
-                if (!pontuacoes[tema.nome]) {
-                    pontuacoes[tema.nome] = 0;
-                }
-                pontuacoes[tema.nome] += subPergunta.pontuacao[index];
-                subPerguntaAtual++;
-    
-                if (subPerguntaAtual < tema.perguntas.length) {
-                    mostrarProximaPerguntaMultiplaEscolha();
+                if (subPergunta.titulo === 'Avaliação da Tireoide' || subPergunta.titulo === 'Avaliação das Patologias') {
+                    if (selectedOptions.has(index)) {
+                        selectedOptions.delete(index);
+                        btn.classList.remove('selected');
+                    } else {
+                        selectedOptions.add(index);
+                        btn.classList.add('selected');
+                    }
+
+                    // Exibir ou ocultar o botão "Continuar" baseado nas seleções
+                    if (selectedOptions.size > 0) {
+                        continueButton.style.display = 'block';
+                    } else {
+                        continueButton.style.display = 'none';
+                    }
                 } else {
-                    temaAtual++;
-                    subPerguntaAtual = 0;
-                    if (temaAtual < temas.length) {
+                    // Comportamento padrão para perguntas com única seleção
+                    if (!pontuacoes[tema.nome]) {
+                        pontuacoes[tema.nome] = 0;
+                    }
+                    pontuacoes[tema.nome] += subPergunta.pontuacao[index];
+                    subPerguntaAtual++;
+
+                    if (subPerguntaAtual < tema.perguntas.length) {
                         mostrarProximaPerguntaMultiplaEscolha();
                     } else {
-                        const sortedPontuacoes = Object.keys(pontuacoes)
-                            .map(tema => ({ tema, pontos: pontuacoes[tema] }))
-                            .sort((a, b) => b.pontos - a.pontos);
-    
-                        localStorage.setItem('pontuacoes', JSON.stringify(sortedPontuacoes));
-                        calcularIMC();
-                        window.location.href = 'resultado.html';
+                        temaAtual++;
+                        subPerguntaAtual = 0;
+                        if (temaAtual < temas.length) {
+                            mostrarProximaPerguntaMultiplaEscolha();
+                        } else {
+                            const sortedPontuacoes = Object.keys(pontuacoes)
+                                .map(tema => ({ tema, pontos: pontuacoes[tema] }))
+                                .sort((a, b) => b.pontos - a.pontos);
+
+                            localStorage.setItem('pontuacoes', JSON.stringify(sortedPontuacoes));
+                            calcularIMC();
+                            window.location.href = 'resultado.html';
+                        }
                     }
                 }
             });
+
             mcqOptions.appendChild(btn);
         });
+
+        // Verificar se a pergunta é "Avaliação da Tireoide" para exibir o botão "Continuar"
+        if (subPergunta.titulo === 'Avaliação da Tireoide') {
+            continueButton.style.display = 'none';
+        } else {
+            continueButton.style.display = 'none';
+        }
 
         // Remover a classe fade-out e adicionar a classe fade-in
         container.classList.remove('fade-out');
@@ -453,6 +481,40 @@ function mostrarProximaPerguntaMultiplaEscolha() {
     }, 500); // Tempo correspondente ao tempo de transição do fade-out
 }
 
+// Event listener para o botão "Continuar"
+document.getElementById('continue-button').addEventListener('click', () => {
+    const tema = temas[temaAtual];
+    const subPergunta = tema.perguntas[subPerguntaAtual];
+    const selectedOptions = document.querySelectorAll('.opcao-btn.selected');
+    selectedOptions.forEach(option => {
+        const index = Array.from(option.parentNode.children).indexOf(option);
+        if (!pontuacoes[tema.nome]) {
+            pontuacoes[tema.nome] = 0;
+        }
+        pontuacoes[tema.nome] += subPergunta.pontuacao[index];
+    });
+
+    subPerguntaAtual++;
+
+    if (subPerguntaAtual < tema.perguntas.length) {
+        mostrarProximaPerguntaMultiplaEscolha();
+    } else {
+        temaAtual++;
+        subPerguntaAtual = 0;
+        if (temaAtual < temas.length) {
+            mostrarProximaPerguntaMultiplaEscolha();
+        } else {
+            const sortedPontuacoes = Object.keys(pontuacoes)
+                .map(tema => ({ tema, pontos: pontuacoes[tema] }))
+                .sort((a, b) => b.pontos - a.pontos);
+
+            localStorage.setItem('pontuacoes', JSON.stringify(sortedPontuacoes));
+            calcularIMC();
+            window.location.href = 'resultado.html';
+        }
+    }
+});
+
 // Inicialização
 mostrarProximaPerguntaMultiplaEscolha();
     
@@ -465,7 +527,7 @@ mostrarProximaPerguntaMultiplaEscolha();
         localStorage.setItem('imc', imc.toFixed(2));
     }
 
-    continuarBtn.addEventListener('click', () => {
+    continuarBtn.addEventListener('click', function() {
         const proguess_bar = document.getElementById('progress-container')
         const proguess_titulo = document.getElementById('progress-title')
         const nome = nomeInput.value.trim();
@@ -473,13 +535,50 @@ mostrarProximaPerguntaMultiplaEscolha();
         const idade = idadeInput.value.trim();
         const peso = pesoInput.value.trim();
         const altura = alturaInput.value.trim();
-        if (nome && email && idade && peso && altura) {
-            // Aqui você pode armazenar os valores conforme necessário
-            localStorage.setItem('nome', nome);
-            localStorage.setItem('email', email);
-            localStorage.setItem('idade', idade);
-            localStorage.setItem('peso', peso);
-            localStorage.setItem('altura', altura);
+
+        let errors = [];
+        
+            // Validação do nome
+            if (nome === '') {
+                errors.push('Nome não pode estar em branco');
+            }
+
+            // Validação do email
+            if (email === '') {
+                errors.push('Email não pode estar em branco');
+            } else {
+                // Validação básica de formato de email
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errors.push('Formato de email inválido');
+                }
+            }
+
+            // Validação da idade
+            if (isNaN(idade) || idade < 18 || idade > 100) {
+                errors.push('Idade deve estar entre 18 e 100 anos');
+            }
+
+            // Validação do peso
+            if (isNaN(peso) || peso < 30 || peso > 100) {
+                errors.push('Peso deve estar entre 30 e 100 kg');
+            }
+
+            // Validação da altura
+            if (isNaN(altura) || altura < 100 || altura > 300) {
+                errors.push('Altura deve estar entre 100 e 300 cm');
+            }
+
+            // Exibir erros, se houver
+            if (errors.length > 0) {
+                alert(errors.join('\n'));
+            } else {
+                // Armazenar os valores no localStorage, se não houver erros
+                localStorage.setItem('nome', nome);
+                localStorage.setItem('email', email);
+                localStorage.setItem('idade', idade);
+                localStorage.setItem('peso', peso);
+                localStorage.setItem('altura', altura);
 
             formContainer.style.display = 'none';
             proguess_bar.style.display = 'block'
@@ -487,8 +586,6 @@ mostrarProximaPerguntaMultiplaEscolha();
             informacao_form.style.display = 'none';
             mcqContainer.style.display = 'block';
             mostrarProximaPerguntaMultiplaEscolha();
-        } else {
-            alert('Por favor, preencha todos os campos.');
         }
     });
     // Inicia com a primeira pergunta

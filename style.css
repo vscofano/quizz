@@ -190,6 +190,20 @@ input[type="number"] {
     line-height: 20px;
     color: white;
 }
+/*botao da multipla escolha*/
+.opcao-btn.selected {
+    background-color: var(--cor-primaria); /* Cor de fundo para o botão selecionado */
+    color: white;
+}
+#continue-button{
+    border-radius: 10px;
+    padding: 5px;
+    margin: auto;
+    width: 150px;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+}
 
 
 /*Página de Resultados*/
